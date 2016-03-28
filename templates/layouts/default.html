@@ -10,6 +10,33 @@
     <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
+    <div class="row extended">
+        <div class="large-12 columns">
+            <div class="top-bar">
+              <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                  <li class="menu-text">Site Title</li>
+                  <li>
+                    <a href="#">One</a>
+                    <ul class="menu vertical">
+                      <li><a href="#">One</a></li>
+                      <li><a href="#">Two</a></li>
+                      <li><a href="#">Three</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Two</a></li>
+                  <li><a href="#">Three</a></li>
+                </ul>
+              </div>
+              <div class="top-bar-right">
+                <ul class="menu">
+                  <li><input type="search" placeholder="Search"></li>
+                  <li><button type="button" class="button">Search</button></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </div>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
         {% block footer %}
