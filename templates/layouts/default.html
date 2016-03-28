@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
-    <link rel="stylesheet" href="style.css" />
     <title>{% block title %}{% endblock %} - My Webpage</title>
     {% endblock %}
+    <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
         {% block footer %}
-        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+        eat it
         {% endblock %}
     </div>
+    <script src="/assets/js/app.js"></script>
 </body>
 </html>
