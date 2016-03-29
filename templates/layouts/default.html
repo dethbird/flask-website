@@ -11,8 +11,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 </head>
 <body>
-
-    <div id="content">{% block content %}{% endblock %}</div>
+  <header class="navbar navbar-light navbar-static-top bd-navbar" role="banner">
+    <div class="clearfix">
+      <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse" data-target="#app-main-nav">
+        &#9776;
+      </button>
+      <a class="navbar-brand hidden-sm-up" href="/">
+        Bootstrap
+      </a>
+    </div>
+    <div class="collapse navbar-toggleable-xs" id="app-main-nav">
+      <nav class="nav navbar-nav">
+        <a class="nav-item nav-link active">Bootstrap</a>
+        <a class="nav-item nav-link" href="/getting-started/introduction/">Documentation</a>
+        <a class="nav-item nav-link " href="/examples/">Examples</a>
+        <a class="nav-item nav-link" href="http://themes.getbootstrap.com">Themes</a>
+        <a class="nav-item nav-link" href="http://expo.getbootstrap.com">Expo</a>
+        <a class="nav-item nav-link" href="http://blog.getbootstrap.com">Blog</a>
+      </nav>
+    </div>
+  </header>
+    <div class="container">{% block content %}{% endblock %}</div>
     <div id="footer">
         {% block footer %}
         eat it
