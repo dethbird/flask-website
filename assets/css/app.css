@@ -1,0 +1,10 @@
+.navbar {
+  /*background-color: #200e5a;*/
+}
+.card img {
+     width: 100%;
+}
+.card-block button {
+     float: right;
+     clear: both;
+}

@@ -9,34 +9,34 @@
     <title>{% block title %}{% endblock %} - My Webpage</title>
     {% endblock %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
-    <header class="navbar navbar-dark bg-inverse navbar-static-top bd-navbar" role="banner">
-        <div class="clearfix">
-            <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse" data-target="#app-main-nav">
-            &#9776;
-            </button>
-            <a class="navbar-brand hidden-sm-up" href="/">
-            Bootstrap
-            </a>
-        </div>
-        <div class="collapse navbar-toggleable-xs" id="app-main-nav">
-          <nav class="nav navbar-nav">
-                <a class="nav-item nav-link active">Bootstrap</a>
-                <a class="nav-item nav-link" href="/projects">Projects</a>
-                <a class="nav-item nav-link " href="/gallery">Gallery</a>
-                <a class="nav-item nav-link" href="/about">About</a>
-                <a class="nav-item nav-link" href="/updates">Updates</a>
-          </nav>
-        </div>
-    </header>
-    <div class="container">{% block content %}{% endblock %}</div>
-    <div class="container" id="footer">
-        {% block footer %}
-        -+-
-        {% endblock %}
+    <div class="container">
+      <header class="navbar navbar-dark bg-inverse navbar-static-top bd-navbar" role="banner">
+          <div class="clearfix">
+              <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse" data-target="#app-main-nav">
+              &#9776;
+              </button>
+              <a class="navbar-brand hidden-sm-up" href="/">
+              Bootstrap
+              </a>
+          </div>
+          <div class="collapse navbar-toggleable-xs" id="app-main-nav">
+            <nav class="nav navbar-nav">
+                  <a class="nav-item nav-link active">Bootstrap</a>
+                  <a class="nav-item nav-link" href="/projects">Projects</a>
+                  <a class="nav-item nav-link " href="/gallery">Gallery</a>
+                  <a class="nav-item nav-link" href="/about">About</a>
+                  <a class="nav-item nav-link" href="/updates">Updates</a>
+            </nav>
+          </div>
+      </header>
     </div>
+    <br />
+    <div class="container">{% block content %}{% endblock %}</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 </body>
 </html>
