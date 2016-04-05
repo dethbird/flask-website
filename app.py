@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, request, url_for
 
 from flask_website import config
 from flask_website.connector import instagram
@@ -15,15 +16,23 @@ def server_error(error):
 
 @app.route("/")
 def index():
-    # response = instagram.get_recent_media(124,6,None)
-    # import pdb; pdb.set_trace()
     return render_template('pages/index.html')
 
 @app.route("/instagram")
-def instagram():
-    response = instagram.get_recent_media(124,6,None)
-    # import pdb; pdb.set_trace()
-    return response
+def instagram_posts():
+    """Get Instagram posts.
+
+    example url:
+        /instagram?count=6&tags=art,illustration,characterdesign
+
+    Returns:
+        Response: the JSON items representing instagram posts.
+    """
+    response = instagram.get_user_posts(
+        user_id=config.instagram.get('user_id'),
+        count=request.args.get('count', 6),
+        tags=request.args.get('tags', None))
+    return json.dumps(response), 200, {'Content-Type': 'application/json'}
 
 
 if __name__ == "__main__":
