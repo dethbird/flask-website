@@ -19,7 +19,6 @@ def get_user_posts (user_id, count, tags = None, expiry = None):
         count = count,
         tags = tags))
 
-
     # cache requested?
     if expiry != None:
         data = filecache.fetch_cache(cache_key, expiry)

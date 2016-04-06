@@ -1,22 +1,33 @@
 import json
 from flask import Flask, render_template, request, url_for
 
+
 from flask_website import config
 from flask_website.connector import instagram
 
+
 app = Flask(__name__, static_url_path = "/assets", static_folder = "assets")
+
 
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('layouts/404.html'), 404
 
+
 @app.errorhandler(500)
 def server_error(error):
     return render_template('layouts/500.html'), 500
 
+
 @app.route("/")
 def index():
-    return render_template('pages/index.html')
+    instagram_posts = instagram.get_user_posts(
+        user_id=config.instagram.get('user_id'),
+        count='12',
+        tags='art,illustration,characterdesign',
+        expiry=30)
+    return render_template('pages/index.html', instagram_posts=instagram_posts)
+
 
 @app.route("/instagram")
 def instagram_posts():

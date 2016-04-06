@@ -29,6 +29,10 @@
         <div class="card-block">
             <h4 class="card-title">Instagram</h4>
             <p class="card-text">Here's a whole heapin bunch of crap from Instagram.</p>
+            <p>{{ instagram_posts|length }}</p>
+            {% for post in instagram_posts %}
+                {{post.id}}
+            {% endfor %}
         </div>
     </div>
 </div>
