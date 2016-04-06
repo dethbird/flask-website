@@ -31,7 +31,8 @@ def instagram_posts():
     response = instagram.get_user_posts(
         user_id=config.instagram.get('user_id'),
         count=request.args.get('count', 6),
-        tags=request.args.get('tags', None))
+        tags=request.args.get('tags', None),
+        expiry=30)
     return json.dumps(response), 200, {'Content-Type': 'application/json'}
 
 
