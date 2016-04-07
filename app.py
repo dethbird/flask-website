@@ -23,7 +23,7 @@ def server_error(error):
 def index():
     instagram_posts = instagram.get_user_posts(
         user_id=config.instagram.get('user_id'),
-        count='12',
+        count='8',
         tags='art,illustration,characterdesign',
         expiry=3600)
     return render_template('pages/index.html', instagram_posts=instagram_posts)

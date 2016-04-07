@@ -34,7 +34,10 @@
   hyphens: auto;
 
 }
-
+.list-group-item i {
+  margin-right: 5px;
+  color: #200e5a;
+}
 .btn-wordpress {
   color: #fff;
   background-color: #21759b;
