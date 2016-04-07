@@ -25,7 +25,7 @@ def index():
         user_id=config.instagram.get('user_id'),
         count='12',
         tags='art,illustration,characterdesign',
-        expiry=30)
+        expiry=3600)
     return render_template('pages/index.html', instagram_posts=instagram_posts)
 
 
@@ -43,7 +43,7 @@ def instagram_posts():
         user_id=config.instagram.get('user_id'),
         count=request.args.get('count', 6),
         tags=request.args.get('tags', None),
-        expiry=30)
+        expiry=10)
     return json.dumps(response), 200, {'Content-Type': 'application/json'}
 
 

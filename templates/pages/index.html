@@ -7,14 +7,15 @@
 <div class="expanded row">
 <div class="col-xs-12 col-md-3">
     <div class="card">
-        <img class="card-img-top" data-src="http://placekitten.com/500/200" src="http://placekitten.com/500/200" alt="Card image cap" >
+        <img class="card-img-top" data-src="http://placekitten.com/500/200" src="http://placekitten.com/500/420" alt="Card image cap" >
         <div class="card-block">
-            <h4 class="card-title">Bob Shazbutt</h4>
-            <p class="card-text">Hey buddy, totally copying <a href="http://themes.getbootstrap.com/products/application">this</a> website.</p>
-        </div>
-        <div class="card-block">
-        <a href="#" class="card-link">Instagram</a>
-            <a href="#" class="card-link">Twitter</a>
+            <p class="card-text">Outta my way, kid. Ya' bother me. I got cartoons to make.</p>
+            <a class="btn btn-social-icon btn-instagram"><span class="fa fa-instagram"></span></a>
+            <a class="btn btn-social-icon btn-tumblr"><span class="fa fa-tumblr"></span></a>
+            <a class="btn btn-social-icon btn-spotify"><span class="fa fa-spotify"></span></a>
+            <a class="btn btn-social-icon btn-wordpress"><span class="fa fa-wordpress"></span></a>
+            <a class="btn btn-social-icon btn-pinterest"><span class="fa fa-pinterest"></span></a>
+            <a class="btn btn-social-icon btn-twitter"><span class="fa fa-twitter"></span></a>
         </div>
     </div>
     <div class="card hidden-sm-down">
@@ -25,16 +26,16 @@
             <p class="card-text">Art/Tech: http://dethbird.com</p>
         </div>
     </div>
-    <div class="card hidden-sm-down">
+    <h4 class="display-4">Instagram</h4>
+    {% for post in instagram_posts %}
+    <div class="card">
+        <img class="card-img-top" src="{{post.images.low_resolution.url}}"/>
         <div class="card-block">
-            <h4 class="card-title">Instagram</h4>
-            <p class="card-text">Here's a whole heapin bunch of crap from Instagram.</p>
-            <p>{{ instagram_posts|length }}</p>
-            {% for post in instagram_posts %}
-                {{post.id}}
-            {% endfor %}
+          <p class="card-text">{{post.caption.text}}</p>
         </div>
     </div>
+    {% endfor %}
+
 </div>
 <div class="col-xs-12 col-md-6">
     <div class="jumbotron hidden-sm-down">
@@ -90,7 +91,7 @@
     </div>
     <div class="card bg-inverse">
         <div class="card-block">
-            <p class="card-text">&copy; 2016 ExplosionCorps and all it's constituaries from Asia to Eurasia.</p>
+            <p class="card-text">&copy; 2016 RishiSatsangi.com and all it's constituaries from Asia to Eurasia.</p>
         </div>
     </div>
 </div>
