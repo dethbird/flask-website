@@ -23,7 +23,7 @@
             <li class="list-group-item"><i class="fa fa-paint-brush"></i> http://dethbird.com</li>
         </ul>
     </div>
-    <h4 class="display-4">Instagram</h4>
+    <h4 class="display-4 bg-inverse">Instagram</h4>
     {% for post in instagram_posts %}
     <div class="card">
         <img class="card-img-top" src="{{post.images.low_resolution.url}}"/>
@@ -41,7 +41,8 @@
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
       </div>
     </div>
-    <h4 class="display-4">Current Projects:</h4>
+
+    <h4 class="display-4 bg-inverse">Current Projects:</h4>
     <div class="card">
         <div class="card-block">
             <h2 class="card-title">North by Midwest</h2>
@@ -86,7 +87,21 @@
     </div>
 </div>
 <div class="col-xs-12 col-md-3">
-    <h4 class="display-4">Current Projects:</h4>
+    <h4 class="display-4 bg-inverse">Bloggings:</h4>
+    {% for post in wordpress_posts %}
+    <div class="card">
+        {% if post.featured_image != 0 %}
+        <img class="card-img-top" src="{{post.featured_image.media_details.sizes.medium.source_url}}"/>
+        {% endif %}
+        <div class="card-block">
+            <h2 class="card-title">{{post.title.rendered|safe}}</h2>
+        </div>
+        <div class="card-block">
+          {{post.excerpt.rendered|safe}}
+        </div>
+    </div>
+    {% endfor %}
+    <!-- <h4 class="display-4">Current Projects:</h4>
     <div class="card">
         <div class="card-block">
             <h4 class="card-title">North by Midwest</h4>
@@ -128,7 +143,7 @@
             <br />
             <button type="button" class="btn btn-success-outline btn-sm">More ...</button>
         </div>
-    </div>
+    </div> -->
     <div class="card bg-inverse">
         <div class="card-block">
             <p class="card-text">&copy; 2016 RishiSatsangi.com and all it's constituaries from Asia to Eurasia.</p>

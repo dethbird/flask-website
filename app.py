@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, url_for
 
 
 from flask_website import config
-from flask_website.connector import instagram
+from flask_website.connector import instagram, wordpress
 
 
 app = Flask(__name__, static_url_path = "/assets", static_folder = "assets")
@@ -26,7 +26,11 @@ def index():
         count='8',
         tags='art,illustration,characterdesign',
         expiry=3600)
-    return render_template('pages/index.html', instagram_posts=instagram_posts)
+    wordpress_posts = wordpress.get_user_posts(
+        ids=','.join(config.wordpress.get('ids')),
+        expiry=3600)
+    return render_template('pages/index.html', instagram_posts=instagram_posts,
+        wordpress_posts=wordpress_posts)
 
 
 @app.route("/instagram")
@@ -46,6 +50,20 @@ def instagram_posts():
         expiry=10)
     return json.dumps(response), 200, {'Content-Type': 'application/json'}
 
+@app.route("/wordpress")
+def wordpress_posts():
+    """Get Wordpress posts.
+
+    example url:
+        /wordpress?ids=47,116,1
+
+    Returns:
+        Response: the JSON items representing wordpress posts.
+    """
+    response = wordpress.get_user_posts(
+        ids=request.args.get('ids', None),
+        expiry=10)
+    return json.dumps(response), 200, {'Content-Type': 'application/json'}
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
